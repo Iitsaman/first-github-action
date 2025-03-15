@@ -1,4 +1,4 @@
-name: "hello workflow"
+name: "hello workflow" #name  of workflow pipwline
 
 on:
     push:
@@ -6,7 +6,7 @@ on:
         - main
         - production
 jobs:
-   hello_world:
+   hello_world:   # name of the job
     runs-on: ubuntu-latest  
 
     steps:

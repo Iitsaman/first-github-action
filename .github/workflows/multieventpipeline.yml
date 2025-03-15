@@ -1,0 +1,14 @@
+name: "multi event"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  on_push: # name of the job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "ruunning on main push"
+        run: echo "runnoing on master push"
