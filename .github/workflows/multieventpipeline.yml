@@ -4,11 +4,31 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:   
 
 jobs:
-  on_push: # name of the job
+  on_push: # Job that runs on push event
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' # Runs only on push event
 
     steps:
-      - name: "ruunning on main push"
-        run: echo "runnoing on master push"
+      - name: "Running on main push"
+        run: echo "Running on push to main branch"
+
+  on_pull_request: # Job that runs on pull request event
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' # Runs only on pull request event
+
+    steps:
+      - name: "Running on pull request"
+        run: echo "Running on pull request to main branch"
+  on_workflow_dispatch: 
+    runs-on: ubuntu-latest
+    if: github.event_name == ' workflow_dispatch' # Runs only on push event
+
+    steps:
+      - name: "Running on workflow dispatch"
+        run: echo "Running on workflow disptach"
